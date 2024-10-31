@@ -320,3 +320,14 @@ fn main() {
 
     assert_eq!(stats.redirects, 2);
 }
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn test_validate_url() {
+        assert_eq!(true, validate_url(&Url("http://ya.ru".to_string())));
+        assert_eq!(false, validate_url(&Url("abc".to_string())));
+    }
+}
